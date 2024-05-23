@@ -4,6 +4,8 @@ const Home = () => {
   const [products] = useOutletContext();
   let homeProducts = products.slice(0, 3);
 
+  if (products.length === 0) return <p>Loading...</p>;
+
   return (
     <div className="home">
       <div className="description">
@@ -16,6 +18,7 @@ const Home = () => {
           <li className="item-card" key={item.id}>
             <img src={item.image} />
             <p>{item.title}</p>
+            <p>${item.price}</p>
           </li>
         ))}
       </ul>

@@ -2,7 +2,7 @@ import { useOutletContext, Link } from "react-router-dom";
 
 const Shop = () => {
   const [products] = useOutletContext();
-
+  if (products.length === 0) return <p>Loading...</p>;
   return (
     <div className="shop">
       <div className="sidebar">filter products</div>

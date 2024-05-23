@@ -5,6 +5,16 @@ import "./App.css";
 function App() {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
+  const [cart, setCart] = useState([]);
+
+  function handleAddCartItems(item) {
+    setCart([...cart, item]);
+  }
+
+  function handleDeleteCartItems(item) {
+    const updatedArray = cart.filter((element) => element.id != item.id);
+    setCart(updatedArray);
+  }
 
   useEffect(() => {
     const fetchShopItems = async () => {
@@ -37,18 +47,22 @@ function App() {
           <p>Logo</p>
         </div>
         <div className="nav-buttons">
-          <button>
-            <Link to="/">Home</Link>
-          </button>
-          <button>
-            <Link to="shop">Shop</Link>
-          </button>
-          <button>
-            <Link to="cart">Cart</Link>
-          </button>
+          <Link to="/">
+            <button>Home</button>
+          </Link>
+
+          <Link to="shop">
+            <button>Shop</button>
+          </Link>
+
+          <Link to="cart">
+            <button>Cart {cart.length}</button>
+          </Link>
         </div>
       </nav>
-      <Outlet context={[products]} />
+      <Outlet
+        context={[products, handleAddCartItems, handleDeleteCartItems, cart]}
+      />
     </>
   );
 }
