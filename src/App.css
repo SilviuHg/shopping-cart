@@ -92,6 +92,13 @@ ul {
   padding: 0px 0px 20px 30px;
 }
 
+.cart-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 60px;
+}
+
 .cart-list {
   display: flex;
   flex-direction: column;
@@ -112,4 +119,11 @@ ul {
 .delete-btn {
   width: 75px;
   height: 75px;
+}
+
+.checkout {
+  padding: 50px;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 300px;
 }

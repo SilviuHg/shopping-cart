@@ -1,12 +1,12 @@
 import { useOutletContext, useParams } from "react-router-dom";
 
 const Product = () => {
-  const [products, handleAddCartItems] = useOutletContext();
+  const [products, handleAddCartItems, , cart] = useOutletContext();
   const productData = useParams();
   const productDisplayed = products.find(
     (product) => product.id == productData.productId
   );
-  console.log(productData, products, productDisplayed);
+  console.log(productData, products, productDisplayed, cart);
 
   if (products.length === 0) return <p>Loading...</p>;
 

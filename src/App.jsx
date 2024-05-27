@@ -8,7 +8,19 @@ function App() {
   const [cart, setCart] = useState([]);
 
   function handleAddCartItems(item) {
-    setCart([...cart, item]);
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((cartItem) => cartItem.id === item.id); // check if current item is in the cart
+      if (existingItem) {
+        return prevCart.map(
+          (cartItem) =>
+            cartItem.id === item.id
+              ? { ...cartItem, quantity: cartItem.quantity + 1 } // if current item exists, update quantity
+              : cartItem // return other items unchanged
+        );
+      } else {
+        return [...prevCart, { ...item, quantity: 1 }];
+      }
+    });
   }
 
   function handleDeleteCartItems(item) {
