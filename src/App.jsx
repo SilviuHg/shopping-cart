@@ -7,25 +7,45 @@ function App() {
   const [error, setError] = useState(null);
   const [cart, setCart] = useState([]);
 
-  function handleAddCartItems(item) {
+  function handleAddCartItems(item, quantity) {
     setCart((prevCart) => {
       const existingItem = prevCart.find((cartItem) => cartItem.id === item.id); // check if current item is in the cart
       if (existingItem) {
         return prevCart.map(
           (cartItem) =>
             cartItem.id === item.id
-              ? { ...cartItem, quantity: cartItem.quantity + 1 } // if current item exists, update quantity
+              ? { ...cartItem, quantity: cartItem.quantity + quantity } // if current item exists, update quantity
               : cartItem // return other items unchanged
         );
       } else {
-        return [...prevCart, { ...item, quantity: 1 }];
+        return [...prevCart, { ...item, quantity: quantity }];
       }
     });
   }
 
   function handleDeleteCartItems(item) {
-    const updatedArray = cart.filter((element) => element.id != item.id);
+    const updatedArray = cart.filter((cartItem) => cartItem.id != item.id);
     setCart(updatedArray);
+  }
+
+  function handleIncrementQuantity(item) {
+    setCart((prevCart) =>
+      prevCart.map((cartItem) =>
+        cartItem.id === item.id
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : cartItem
+      )
+    );
+  }
+
+  function handleDecrementQuantity(item) {
+    setCart((prevCart) =>
+      prevCart.map((cartItem) =>
+        cartItem.id === item.id && cartItem.quantity > 1
+          ? { ...cartItem, quantity: cartItem.quantity - 1 }
+          : cartItem
+      )
+    );
   }
 
   useEffect(() => {
@@ -73,7 +93,14 @@ function App() {
         </div>
       </nav>
       <Outlet
-        context={[products, handleAddCartItems, handleDeleteCartItems, cart]}
+        context={[
+          products,
+          handleAddCartItems,
+          handleDeleteCartItems,
+          cart,
+          handleIncrementQuantity,
+          handleDecrementQuantity,
+        ]}
       />
     </>
   );

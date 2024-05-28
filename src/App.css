@@ -110,10 +110,23 @@ ul {
   display: flex;
   flex-direction: row;
   gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-item > img {
+  max-width: 50px;
+  max-height: 50px;
 }
 
 .item-info {
   width: 250px;
+}
+
+.qty-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
 }
 
 .delete-btn {
@@ -126,4 +139,34 @@ ul {
   border: 1px solid black;
   border-radius: 10px;
   width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subtotal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.transport {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.checkout > button {
+  width: 100%;
+}
+
+hr {
+  margin-left: 0;
+  margin-right: 0;
 }
