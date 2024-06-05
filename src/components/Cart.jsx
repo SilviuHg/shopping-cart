@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, Link } from "react-router-dom";
 
 const Cart = () => {
   const [
@@ -24,7 +24,9 @@ const Cart = () => {
           <h1>Your shopping cart</h1>
           <p>Your cart is empty</p>
           <p>Fill it with your favorite pieces</p>
-          <button>Shop now</button>
+          <Link to="/shop">
+            <button>Shop now</button>
+          </Link>
         </div>
       </>
     );

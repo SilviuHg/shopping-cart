@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, Link } from "react-router-dom";
 
 const Home = () => {
   const [products] = useOutletContext();
@@ -15,11 +15,13 @@ const Home = () => {
       </div>
       <ul>
         {homeProducts.map((item) => (
-          <li className="item-card" key={item.id}>
-            <img src={item.image} />
-            <p>{item.title}</p>
-            <p>${item.price}</p>
-          </li>
+          <Link to={`/product/${item.id}`} key={item.id}>
+            <li className="item-card">
+              <img src={item.image} />
+              <p>{item.title}</p>
+              <p>${item.price}</p>
+            </li>
+          </Link>
         ))}
       </ul>
     </div>
