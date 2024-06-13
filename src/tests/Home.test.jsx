@@ -34,7 +34,7 @@ describe("Home component", () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByRole("heading", { level: 2 }).textContent).toMatch(
+    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(
       /Welcome to my market!/
     );
   });

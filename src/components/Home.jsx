@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className="home">
       <div className="description">
-        <h2>Welcome to my market!</h2>
+        <h1>Welcome to my market!</h1>
         <h3>Home of lorem ipsum products</h3>
         <p>Lorem ipsum dolor sit amet</p>
       </div>
@@ -20,10 +20,14 @@ const Home = () => {
               <img src={item.image} />
               <p>{item.title}</p>
               <p>${item.price}</p>
+              <p className="rating">{`Rating: ${item.rating.rate} (${item.rating.count})`}</p>
             </li>
           </Link>
         ))}
       </ul>
+      <Link to="/shop">
+        <button className="shop-now-btn">Shop now</button>
+      </Link>
     </div>
   );
 };

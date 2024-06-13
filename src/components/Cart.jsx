@@ -1,4 +1,5 @@
 import { useOutletContext, Link } from "react-router-dom";
+import DeleteIcon from "../assets/delete_icon.svg";
 
 const Cart = () => {
   const [
@@ -25,7 +26,7 @@ const Cart = () => {
           <p>Your cart is empty</p>
           <p>Fill it with your favorite pieces</p>
           <Link to="/shop">
-            <button>Shop now</button>
+            <button className="shop-now-btn">Shop now</button>
           </Link>
         </div>
       </>
@@ -39,7 +40,7 @@ const Cart = () => {
         <div className="cart-list">
           {cart.map((product) => (
             <div className="list-item" key={product.id}>
-              <img src={product.image} />
+              <img src={product.image} alt={product.title} />
               <div className="item-info">
                 <h3>{product.title}</h3>
                 <p>In stock</p>
@@ -58,7 +59,7 @@ const Cart = () => {
                 className="delete-btn"
                 onClick={() => handleDeleteCartItems(product)}
               >
-                Delete item
+                <img src={DeleteIcon} alt={`Delete ${product.title}`} />
               </button>
               <h3>${(product.price * product.quantity).toFixed(2)}</h3>
             </div>

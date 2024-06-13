@@ -1,16 +1,17 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 #root {
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
 }
 
-.nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px 80px;
-  border-bottom: 1px solid black;
-  margin-bottom: 10px;
+button {
+  cursor: pointer;
 }
 
 img {
@@ -18,15 +19,49 @@ img {
   width: auto;
 }
 
-.item-card {
-  border: 1px solid black;
+/* Logo */
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+.nav {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 80px;
+  box-shadow: 0 3px 2px -2px #9ca3af;
+  margin-bottom: 10px;
+}
+
+.logo {
+  display: flex;
   align-items: center;
-  width: 180px;
-  height: 250px;
-  padding: 15px 20px;
-  text-wrap: wrap;
+}
+
+.link-style {
+  border-bottom: 2px solid transparent;
+}
+
+.link-style:hover {
+  border-color: black;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 /* HOME SECTION */
@@ -37,9 +72,6 @@ ul {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
 }
 
 .home {
@@ -47,6 +79,47 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 25px;
+}
+
+.item-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  width: 220px;
+  height: 300px;
+  padding: 20px 25px;
+  text-wrap: wrap;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+    rgb(209, 213, 219) 0px 0px 0px 1px inset;
+  border-radius: 5px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  margin: 20px 0 20px 0;
+}
+
+/*
+.rating {
+} */
+
+.shop-now-btn {
+  padding: 10px 15px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #d6d3d1;
+  background-color: white;
+  transition: background-color 0.25s;
+}
+
+.shop-now-btn:hover {
+  background-color: #d6d3d1;
 }
 
 /* SHOP SECTION */
@@ -54,7 +127,7 @@ ul {
 .shop {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 50px;
 }
 
 .sidebar {
@@ -65,6 +138,14 @@ ul {
 
 .sidebar > button {
   text-align: left;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+}
+
+.sidebar > button:hover {
+  background-color: #e2e8f0;
 }
 
 .items {
@@ -89,16 +170,63 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px;
-  border: 1px solid black;
-  border-radius: 5px;
   min-width: 300px;
+  height: 300px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+    rgb(209, 213, 219) 0px 0px 0px 1px inset;
+  border-radius: 5px;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .qty-container {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 10px;
+  align-items: center;
+}
+
+.qty-container > button {
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  border: 1px solid #d6d3d1;
+  background-color: white;
+  transition: background-color 0.25s;
+}
+
+.qty-container > button:hover {
+  background-color: #e2e8f0;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+}
+
+.back-btn:hover {
+  background-color: #e2e8f0;
+}
+
+.add-to-cart-btn {
+  max-width: 250px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #d6d3d1;
+  background-color: white;
+  transition: background-color 0.25s;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #e2e8f0;
 }
 
 /* CART SECTION */
@@ -153,7 +281,7 @@ ul {
   padding: 50px;
   border: 1px solid black;
   border-radius: 10px;
-  width: 300px;
+  width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;

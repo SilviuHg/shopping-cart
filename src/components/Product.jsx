@@ -1,10 +1,12 @@
-import { useOutletContext, useParams } from "react-router-dom";
+import { useOutletContext, useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import BackBtnIcon from "../assets/arrow_back.svg";
 
 const Product = () => {
   const [products, handleAddCartItems, , cart] = useOutletContext();
   const [quantity, setQuantity] = useState(1);
   const productData = useParams();
+  const navigate = useNavigate();
   const productDisplayed = products.find(
     (product) => product.id == productData.productId
   );
@@ -24,20 +26,30 @@ const Product = () => {
 
   return (
     <div className="product-page">
+      <button
+        className="back-btn"
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        <img src={BackBtnIcon} />
+      </button>
       <div className="product-info">
         <div className="left-side">
-          <img src={productDisplayed.image} />
+          <img src={productDisplayed.image} alt={productDisplayed.title} />
         </div>
         <div className="right-side">
           <h2>{productDisplayed.title}</h2>
+          <p>In stock</p>
+          <h3>${productDisplayed.price}</h3>
           <div className="qty-container">
             <button onClick={handleDecrement}>-</button>
             <p>{quantity}</p>
             <button onClick={handleIncrement}>+</button>
           </div>
-          <h3>${productDisplayed.price}</h3>
           <p>{productDisplayed.description}</p>
           <button
+            className="add-to-cart-btn"
             onClick={() => handleAddCartItems(productDisplayed, quantity)}
           >
             Add to cart

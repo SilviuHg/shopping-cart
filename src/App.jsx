@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
+import CartIcon from "../src/assets/shopping_cart.svg";
 import "./App.css";
 
 function App() {
@@ -76,19 +77,24 @@ function App() {
     <>
       <nav className="nav">
         <div className="logo">
-          <p>Logo</p>
+          <Link to="/">
+            <h1>market.</h1>
+          </Link>
         </div>
         <div className="nav-buttons">
-          <Link to="/">
-            <button>Home</button>
+          <Link to="/" className="link-style">
+            <button className="nav-btn">Home</button>
           </Link>
 
-          <Link to="shop">
-            <button>Shop</button>
+          <Link to="shop" className="link-style">
+            <button className="nav-btn">Shop</button>
           </Link>
 
-          <Link to="cart">
-            <button>Cart {cart.length}</button>
+          <Link to="cart" className="link-style">
+            <button className="nav-btn">
+              Cart <img src={CartIcon} />
+              {cart.length}
+            </button>
           </Link>
         </div>
       </nav>

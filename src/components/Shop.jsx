@@ -53,8 +53,10 @@ const Shop = () => {
         {displayedProducts.map((product) => (
           <Link to={`/product/${product.id}`} key={product.id}>
             <div className="item-card">
-              <img src={product.image} />
+              <img src={product.image} alt={product.title} />
               <p>{product.title}</p>
+              <p>${product.price}</p>
+              <p className="rating">{`Rating: ${product.rating.rate} (${product.rating.count})`}</p>
             </div>
           </Link>
         ))}
