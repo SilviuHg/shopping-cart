@@ -40,14 +40,18 @@ const Product = () => {
         </div>
         <div className="right-side">
           <h2>{productDisplayed.title}</h2>
-          <p>In stock</p>
+          <p className="price-stock">In stock</p>
           <h3>${productDisplayed.price}</h3>
           <div className="qty-container">
-            <button onClick={handleDecrement}>-</button>
+            <button className="qty-button" onClick={handleDecrement}>
+              -
+            </button>
             <p>{quantity}</p>
-            <button onClick={handleIncrement}>+</button>
+            <button className="qty-button" onClick={handleIncrement}>
+              +
+            </button>
           </div>
-          <p>{productDisplayed.description}</p>
+          <p className="product-description">{productDisplayed.description}</p>
           <button
             className="add-to-cart-btn"
             onClick={() => handleAddCartItems(productDisplayed, quantity)}

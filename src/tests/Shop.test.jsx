@@ -23,14 +23,22 @@ const mockedProducts = [
     title: "Product 1",
     image: "image1.jpg",
     category: "men's clothing",
+    rating: { rate: 1, count: 10 },
   },
   {
     id: 2,
     title: "Product 2",
     image: "image2.jpg",
     category: "women's clothing",
+    rating: { rate: 2, count: 20 },
   },
-  { id: 3, title: "Product 3", image: "image3.jpg", category: "electronics" },
+  {
+    id: 3,
+    title: "Product 3",
+    image: "image3.jpg",
+    category: "electronics",
+    rating: { rate: 3, count: 30 },
+  },
 ];
 
 describe("Shop component", () => {

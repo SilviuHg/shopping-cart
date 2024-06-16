@@ -18,9 +18,9 @@ const Home = () => {
           <Link to={`/product/${item.id}`} key={item.id}>
             <li className="item-card">
               <img src={item.image} />
-              <p>{item.title}</p>
-              <p>${item.price}</p>
-              <p className="rating">{`Rating: ${item.rating.rate} (${item.rating.count})`}</p>
+              <p className="title">{item.title}</p>
+              <p className="price-stock">${item.price}</p>
+              <p className="rating-qty">{`Rating: ${item.rating.rate} (${item.rating.count})`}</p>
             </li>
           </Link>
         ))}

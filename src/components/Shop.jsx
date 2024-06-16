@@ -54,9 +54,9 @@ const Shop = () => {
           <Link to={`/product/${product.id}`} key={product.id}>
             <div className="item-card">
               <img src={product.image} alt={product.title} />
-              <p>{product.title}</p>
-              <p>${product.price}</p>
-              <p className="rating">{`Rating: ${product.rating.rate} (${product.rating.count})`}</p>
+              <p className="title">{product.title}</p>
+              <p className="price-stock">${product.price}</p>
+              <p className="rating-qty">{`Rating: ${product.rating.rate} (${product.rating.count})`}</p>
             </div>
           </Link>
         ))}

@@ -17,9 +17,27 @@ vi.mock("react-router-dom", async (importOriginal) => {
 });
 
 const mockedProducts = [
-  { id: 1, title: "Product 1", image: "image1.jpg", price: 10 },
-  { id: 2, title: "Product 2", image: "image2.jpg", price: 20 },
-  { id: 3, title: "Product 3", image: "image3.jpg", price: 30 },
+  {
+    id: 1,
+    title: "Product 1",
+    image: "image1.jpg",
+    price: 10,
+    rating: { rate: 1, count: 10 },
+  },
+  {
+    id: 2,
+    title: "Product 2",
+    image: "image2.jpg",
+    price: 20,
+    rating: { rate: 2, count: 20 },
+  },
+  {
+    id: 3,
+    title: "Product 3",
+    image: "image3.jpg",
+    price: 30,
+    rating: { rate: 3, count: 30 },
+  },
 ];
 
 vi.mocked(useOutletContext).mockReturnValue([mockedProducts]);

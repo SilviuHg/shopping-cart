@@ -1,8 +1,9 @@
-# React + Vite
+# Shopping cart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The main goal of this project was to practice react-router-dom and react testing library by building a shopping cart application. The setup was done with Vite and Vitest (for the testing framework).
 
-Currently, two official plugins are available:
+# About
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app contains standard e-commerce store features using FakeStoreApi. Users can browse products, view detailed product info, add to cart, edit cart contents and simulate a mock checkout process.
+
+[Live demo](https://silviuhg-shopping-cart.netlify.app/) 👈 Check it out here
